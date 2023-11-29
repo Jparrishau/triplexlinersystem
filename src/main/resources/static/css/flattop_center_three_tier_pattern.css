@@ -1,0 +1,103 @@
+#lid_diam_flt_center_three_tier {
+    position: absolute;
+    top: 3.7%;
+    left: 46.5%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#chimney_diam_flt_center_three_tier {
+    position: absolute;
+    top: 23.2%;
+    left: 46.5%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#chimney_depth_flt_center_three_tier {
+    position: absolute;
+    top: 16%;
+    left: 64.7%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#chimney_depth2_flt_center_three_tier {
+    position: absolute;
+    top: 29.5%;
+    left: 71.7%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_c_flt_center_three_tier {
+    position: absolute;
+    top: 30.2%;
+    left: 46.5%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_d_flt_center_three_tier {
+    position: absolute;
+    top: 47.4%;
+    left: 46.5%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_e_flt_center_three_tier {
+    position: absolute;
+    top: 54.6%;
+    left: 46.5%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_f_flt_center_three_tier {
+    position: absolute;
+    top: 68.4%;
+    left: 46.5%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_g_flt_center_three_tier {
+    position: absolute;
+    top: 84%;
+    left: 47%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#bench_depth_flt_center_three_tier {
+    position: absolute;
+    top: 48.2%;
+    left: 18.55%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#invert_depth_flt_center_three_tier {
+    position: absolute;
+    top: 59%;
+    left: 11%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#invert_diam_flt_center_three_tier {
+    position: absolute;
+    top: 91.6%;
+    left: 59%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#canister_diam_flt_center_three_tier {
+    position: absolute;
+    top: 4%;
+    left: 46.5%;
+    width: 11%;
+    height: 4.5%;
+}

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triplex Liner System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link th:href="@{/css/pattern_form.css}" rel="stylesheet"/>
+    <link th:href="@{/css/file_upload.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="main">
+    <div class="container-fluid content">
+        <div class="row">
+            <div class="form-header header-large">
+                <div class="header-text">
+                    <h1 id="header_1" class="form-header" th:text="${type}">Placeholder Header</h1>
+                    <div id="subHeader_1" class="form-subHeader">Manhole Measurement Form</div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-row">
+            <form th:action="@{/submitPatternForm}" enctype="multipart/form-data" class="pattern-form"
+                  id="pattern-form-main" autocomplete="off" novalidate>
+                <div id="pattern-basic-info" class="form-page active-page" data-page-number="1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="trplx-label" for="CityManholeID">
+                                        City Manhole ID#
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="CityManholeID" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="trplx-label" for="TriplexManholeID">
+                                        Triplex Manhole ID#
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="TriplexManholeID" required/>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="trplx-label" for="CityState">
+                                        City/State
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="CityState" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="trplx-label" for="StreetAddress">
+                                        Street Address
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="StreetAddress" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="trplx-label">
+                                    Structure Type
+                                    <span class="form-required">*</span>
+                                </label>
+                                <br>
+                                <fieldset class="checkbox-group">
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label" for="Concrete">Concrete</label>
+                                        <input type="radio" class="form-check-input" name="structureType"
+                                               id="Concrete" required/>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label" for="Brick">Brick</label>
+                                        <input type="radio" class="form-check-input" name="structureType" id="Brick"
+                                               required/>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <label class="form-check-label" for="Other">Other</label>
+                                        <input type="radio" class="form-check-input" name="structureType" id="Other"
+                                               required/>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="trplx-label">
+                                        Invert to be Lined
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <br>
+                                    <fieldset class="checkbox-group">
+                                        <div class="form-check form-checkbox-item ">
+                                            <input class="form-check-input" type="radio" name="invertLined" value="yes"
+                                                   id="invertLinedYes" required>
+                                            <label class="form-check-label" for="invertLinedYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="invertLined" value="no"
+                                                   id="invertLinedNo" required>
+                                            <label class="form-check-label" for="invertLinedNo">No</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="trplx-label">
+                                        Steps to be Removed
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <br>
+                                    <fieldset class="checkbox-group">
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="stepsRemoved" value="yes"
+                                                   id="stepsRemovedYes" required>
+                                            <label class="form-check-label" for="stepsRemovedYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="stepsRemoved" value="no"
+                                                   id="stepsRemovedNo" required>
+                                            <label class="form-check-label" for="stepsRemovedNo">No</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="trplx-label">
+                                        Benches to be Built
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <br>
+                                    <fieldset class="checkbox-group">
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="benchesBuilt" value="yes"
+                                                   id="benchesBuiltYes" required>
+                                            <label class="form-check-label" for="benchesBuiltYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="benchesBuilt" value="no"
+                                                   id="benchesBuiltNo" required>
+                                            <label class="form-check-label" for="benchesBuiltNo">No</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="trplx-label">
+                                        Latterals Above Invert
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <br>
+                                    <fieldset class="checkbox-group" required>
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="latteralsInvert"
+                                                   value="yes"
+                                                   id="latteralsInvertYes" required>
+                                            <label class="form-check-label" for="latteralsInvertYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="latteralsInvert"
+                                                   value="no"
+                                                   id="latteralsInvertNo" required>
+                                            <label class="form-check-label" for="latteralsInvertNo">No</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="trplx-label">
+                                        Is there a FM
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <br>
+                                    <fieldset class="checkbox-group" required>
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="fm" value="yes"
+                                                   id="fmYes" required>
+                                            <label class="form-check-label" for="fmYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="fm" value="no" id="fmNo"
+                                                   required>
+                                            <label class="form-check-label" for="fmNo">No</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="trplx-label">
+                                        Coating to be Removed
+                                        <span class="form-required">*</span>
+                                    </label>
+                                    <br>
+                                    <fieldset class="checkbox-group" required>
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="coatingRemoved"
+                                                   value="yes"
+                                                   id="coatingRemovedYes" required>
+                                            <label class="form-check-label" for="coatingRemovedYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-checkbox-item">
+                                            <input class="form-check-input" type="radio" name="coatingRemoved"
+                                                   value="no"
+                                                   id="coatingRemovedNo" required>
+                                            <label class="form-check-label" for="coatingRemovedNo">No</label>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="pattern-measurements" class="form-page" data-page-number="2">
+                    <div class="container-fluid p-0 h-100">
+                        <div class="row h-100 align-items-center justify-content-center">
+                            <div class="pattern-image" th:object="${linerPattern.linerPatternMeasurementInfo}">
+                                <th:block th:if="${param.type[0] == 'straight_center'}">
+                                    <link th:href="@{/css/straight_center_pattern.css}" rel="stylesheet"/>
+                                    <img th:src="@{/images/STRAIGHT_CENTER_NBX.svg}" class="pattern_image">
+                                    <input type='text' name='lid_diam_str_center' id='lid_diam_str_center'
+                                           class="form-control pattern-text-field" th:field="*{lidDiameter}"
+                                           pattern="\d*" required/>
+                                    <input type='text' name='chimney_diam_str_center' id='chimney_diam_str_center'
+                                           class="form-control pattern-text-field" th:field="*{chimneyDiameter}"
+                                           pattern="\d*" required/>
+                                    <input type='text' name='chimney_depth_str_center' id='chimney_depth_str_center'
+                                           class="form-control pattern-text-field" th:field="*{chimneyDepth}"
+                                           pattern="\d*" required/>
+                                    <input type='text' name='corbel_depth_str_center' id='corbel_depth_str_center'
+                                           class="form-control pattern-text-field" th:field="*{corbelDepth}"
+                                           pattern="\d*" required/>
+                                    <input type='text' name='body_diam_e_str_center' id='body_diam_e_str_center'
+                                           class="form-control pattern-text-field" th:field="*{bodyDiameter1}"
+                                           pattern="\d*" required/>
+                                    <input type='text' name='body_diam_f_str_center' id='body_diam_f_str_center'
+                                           class="form-control pattern-text-field" th:field="*{bodyDiameter2}"
+                                           pattern="\d*" required/>
+                                    <input type='text' name='body_diam_g_str_center' id='body_diam_g_str_center'
+                                           class="form-control pattern-text-field" th:field="*{bodyDiameter3}"
+                                           pattern="\d*" required/>
+                                    <input type='text' name='bench_depth_str_center' id='bench_depth_str_center'
+                                           class="form-control pattern-text-field" th:field="*{benchDepth}"
+                                           pattern="\d*" required/>
+                                    <input type='text' name='invert_depth_str_center' id='invert_depth_str_center'
+                                           class="form-control pattern-text-field" th:field="*{invertDepth}"
+                                           pattern="\d*" required/>
+                                    <input type='text' name='invert_diam_str_center' id='invert_diam_str_center'
+                                           class="form-control pattern-text-field" th:field="*{invertDiameter}"
+                                           pattern="\d*" required/>
+                                </th:block>
+                                <th:block th:if="${param.type[0] == 'standard_center'}">
+                                    <link th:href="@{/css/standard_center_pattern.css}" rel="stylesheet"/>
+                                    <img th:src="@{/images/STANDARD_CENTER_NBX.svg}" class="pattern_image">
+                                    <fieldset>
+                                        <input type='text' name='lid_diam_std_center' id='lid_diam_std_center'
+                                               class="form-control pattern-text-field" th:field="*{lidDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_diam_std_center' id='chimney_diam_std_center'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth_std_center' id='chimney_depth_std_center'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='corbel_depth_std_center' id='corbel_depth_std_center'
+                                               class="form-control pattern-text-field" th:field="*{corbelDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_e_std_center' id='body_diam_e_std_center'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter1}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_f_std_center' id='body_diam_f_std_center'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_g_std_center' id='body_diam_g_std_center'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter3}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='bench_depth_std_center' id='bench_depth_std_center'
+                                               class="form-control pattern-text-field" th:field="*{benchDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_depth_std_center' id='invert_depth_std_center'
+                                               class="form-control pattern-text-field" th:field="*{invertDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_diam_std_center' id='invert_diam_std_center'
+                                               class="form-control pattern-text-field" th:field="*{invertDiameter}"
+                                               pattern="\d*" required/>
+                                    </fieldset>
+                                </th:block>
+                                <th:block th:if="${param.type[0] == 'standard_offset'}">
+                                    <link th:href="@{/css/standard_offset_pattern.css}" rel="stylesheet"/>
+                                    <img class="pattern-svg" th:src="@{/images/STANDARD_OFFSET_NBX.svg}">
+                                    <fieldset>
+                                        <input type='text' name='lid_diam_std_offset' id='lid_diam_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{lidDiameter}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='chimney_diam_std_offset' id='chimney_diam_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDiameter}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='chimney_depth_std_offset' id='chimney_depth_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='corbel_depth_std_offset' id='corbel_depth_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{corbelDepth}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='corbel_slope_std_offset' id='corbel_slope_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{corbelSlope}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='body_diam_1_std_offset' id='body_diam_1_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter1}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='body_diam_2_std_offset' id='body_diam_2_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter2}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='body_diam_3_std_offset' id='body_diam_3_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter3}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='bench_depth_std_offset' id='bench_depth_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{benchDepth}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='invert_depth_std_offset' id='invert_depth_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{invertDepth}"
+                                               pattern="\d*" required>
+                                        <input type='text' name='invert_diam_std_offset' id='invert_diam_std_offset'
+                                               class="form-control pattern-text-field" th:field="*{invertDiameter}"
+                                               pattern="\d*" required>
+                                    </fieldset>
+                                </th:block>
+                                <th:block th:if="${param.type[0] == 'flattop_center'}">
+                                    <link th:href="@{/css/flattop_center_pattern.css}" rel="stylesheet"/>
+                                    <img th:src="@{/images/FLATTOP_CENTER_NBX.svg}" class="pattern_image">
+                                    <fieldset>
+                                        <input type='text' name='lid_diam_flt_center' id='lid_diam_flt_center'
+                                               class="form-control pattern-text-field" th:field="*{lidDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_diam_flt_center' id='chimney_diam_flt_center'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth_flt_center' id='chimney_depth_flt_center'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_e_flt_center' id='body_diam_e_flt_center'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter1}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_f_flt_center' id='body_diam_f_flt_center'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_g_flt_center' id='body_diam_g_flt_center'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter3}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='bench_depth_flt_center' id='bench_depth_flt_center'
+                                               class="form-control pattern-text-field" th:field="*{benchDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_depth_flt_center' id='invert_depth_flt_center'
+                                               class="form-control pattern-text-field" th:field="*{invertDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_diam_flt_center' id='invert_diam_flt_center'
+                                               class="form-control pattern-text-field" th:field="*{invertDiameter}"
+                                               pattern="\d*" required/>
+                                    </fieldset>
+                                </th:block>
+                                <th:block th:if="${param.type[0] == 'flattop_offset'}">
+                                    <link th:href="@{/css/flattop_offset_pattern.css}" rel="stylesheet"/>
+                                    <img th:src="@{/images/FLATTOP_OFFSET_NBX.svg}" class="pattern_image">
+                                    <fieldset>
+                                        <input type='text' name='lid_diam_flt_offset' id='lid_diam_flt_offset'
+                                               class="form-control pattern-text-field" th:field="*{lidDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_diam_flt_offset' id='chimney_diam_flt_offset'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth_flt_offset' id='chimney_depth_flt_offset'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_e_flt_offset' id='body_diam_e_flt_offset'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter1}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_f_flt_offset' id='body_diam_f_flt_offset'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_g_flt_offset' id='body_diam_g_flt_offset'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter3}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='bench_depth_flt_offset' id='bench_depth_flt_offset'
+                                               class="form-control pattern-text-field" th:field="*{benchDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_depth_flt_offset' id='invert_depth_flt_offset'
+                                               class="form-control pattern-text-field" th:field="*{invertDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_diam_flt_offset' id='invert_diam_flt_offset'
+                                               class="form-control pattern-text-field" th:field="*{invertDiameter}"
+                                               pattern="\d*" required/>
+                                    </fieldset>
+                                </th:block>
+                                <th:block th:if="${param.type[0] == 'standard_center_three_tier'}">
+                                    <link th:href="@{/css/standard_center_three_tier_pattern.css}" rel="stylesheet"/>
+                                    <img th:src="@{/images/STANDARD_CENTER_THREE_TIER_NBX.svg}" class="pattern_image">
+                                    <fieldset>
+                                        <input type='text' name='lid_diam_std_center_three_tier'
+                                               id='lid_diam_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{lidDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_diam_std_center_three_tier'
+                                               id='chimney_diam_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth_std_center_three_tier'
+                                               id='chimney_depth_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth2_std_center_three_tier'
+                                               id='chimney_depth2_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth3_std_center_three_tier'
+                                               id='chimney_depth3_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth3}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth4_std_center_three_tier'
+                                               id='chimney_depth4_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth4}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_c_std_center_three_tier'
+                                               id='body_diam_c_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameterA}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_d_std_center_three_tier'
+                                               id='body_diam_d_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameterB}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_e_std_center_three_tier'
+                                               id='body_diam_e_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter1}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_f_std_center_three_tier'
+                                               id='body_diam_f_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_g_std_center_three_tier'
+                                               id='body_diam_g_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter3}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='bench_depth_std_center_three_tier'
+                                               id='bench_depth_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{benchDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_depth_std_center_three_tier'
+                                               id='invert_depth_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{invertDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_diam_std_center_three_tier'
+                                               id='invert_diam_std_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{invertDiameter}"
+                                               pattern="\d*" required/>
+                                    </fieldset>
+                                </th:block>
+                                <th:block th:if="${param.type[0] == 'standard_offset_three_tier'}">
+                                    <link th:href="@{/css/standard_offset_three_tier_pattern.css}" rel="stylesheet"/>
+                                    <img th:src="@{/images/STANDARD_OFFSET_THREE_TIER_NBX.svg}" class="pattern_image">
+                                    <fieldset>
+                                        <input type='text' name='lid_diam_std_offset_three_tier'
+                                               id='lid_diam_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{lidDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_diam_std_offset_three_tier'
+                                               id='chimney_diam_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth_std_offset_three_tier'
+                                               id='chimney_depth_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth2_std_offset_three_tier'
+                                               id='chimney_depth2_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth3_std_offset_three_tier'
+                                               id='chimney_depth3_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth3}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth4_std_offset_three_tier'
+                                               id='chimney_depth4_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth4}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_c_std_offset_three_tier'
+                                               id='body_diam_c_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameterA}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_d_std_offset_three_tier'
+                                               id='body_diam_d_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameterB}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_e_std_offset_three_tier'
+                                               id='body_diam_e_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter1}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_f_std_offset_three_tier'
+                                               id='body_diam_f_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_g_std_offset_three_tier'
+                                               id='body_diam_g_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter3}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='bench_depth_std_offset_three_tier'
+                                               id='bench_depth_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{benchDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_depth_std_offset_three_tier'
+                                               id='invert_depth_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{invertDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_diam_std_offset_three_tier'
+                                               id='invert_diam_std_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{invertDiameter}"
+                                               pattern="\d*" required/>
+                                    </fieldset>
+                                </th:block>
+                                <th:block th:if="${param.type[0] == 'flattop_offset_three_tier'}">
+                                    <link th:href="@{/css/flattop_offset_three_tier_pattern.css}" rel="stylesheet"/>
+                                    <img th:src="@{/images/FLATTOP_OFFSET_THREE_TIER_NBX.svg}" class="pattern_image">
+                                    <fieldset>
+                                        <input type='text' name='lid_diam_flt_offset_three_tier'
+                                               id='lid_diam_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{lidDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_diam_flt_offset_three_tier'
+                                               id='chimney_diam_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth_flt_offset_three_tier'
+                                               id='chimney_depth_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth2_flt_offset_three_tier'
+                                               id='chimney_depth2_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_c_flt_offset_three_tier'
+                                               id='body_diam_c_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameterA}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_d_flt_offset_three_tier'
+                                               id='body_diam_d_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameterB}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_e_flt_offset_three_tier'
+                                               id='body_diam_e_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter1}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_f_flt_offset_three_tier'
+                                               id='body_diam_f_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_g_flt_offset_three_tier'
+                                               id='body_diam_g_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter3}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='bench_depth_flt_offset_three_tier'
+                                               id='bench_depth_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{benchDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_depth_flt_offset_three_tier'
+                                               id='invert_depth_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{invertDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_diam_flt_offset_three_tier'
+                                               id='invert_diam_flt_offset_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{invertDiameter}"
+                                               pattern="\d*" required/>
+                                    </fieldset>
+                                </th:block>
+                                <th:block th:if="${param.type[0] == 'flattop_center_three_tier'}">
+                                    <link th:href="@{/css/flattop_center_three_tier_pattern.css}" rel="stylesheet"/>
+                                    <img th:src="@{/images/FLATTOP_CENTER_THREE_TIER_NBX.svg}" class="pattern_image">
+                                    <fieldset>
+                                        <input type='text' name='lid_diam_flt_center_three_tier'
+                                               id='lid_diam_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{lidDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_diam_flt_center_three_tier'
+                                               id='chimney_diam_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDiameter}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth_flt_center_three_tier'
+                                               id='chimney_depth_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='chimney_depth2_flt_center_three_tier'
+                                               id='chimney_depth2_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{chimneyDepth2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_c_flt_center_three_tier'
+                                               id='body_diam_c_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameterA}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_d_flt_center_three_tier'
+                                               id='body_diam_d_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameterB}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_e_flt_center_three_tier'
+                                               id='body_diam_e_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter1}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_f_flt_center_three_tier'
+                                               id='body_diam_f_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter2}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='body_diam_g_flt_center_three_tier'
+                                               id='body_diam_g_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{bodyDiameter3}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='bench_depth_flt_center_three_tier'
+                                               id='bench_depth_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{benchDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_depth_flt_center_three_tier'
+                                               id='invert_depth_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{invertDepth}"
+                                               pattern="\d*" required/>
+                                        <input type='text' name='invert_diam_flt_center_three_tier'
+                                               id='invert_diam_flt_center_three_tier'
+                                               class="form-control pattern-text-field" th:field="*{invertDiameter}"
+                                               pattern="\d*" required/>
+                                    </fieldset>
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="pattern-questions" class="form-all form-page" data-page-number="3">
+                    <div class="container">
+                        <div class="row">
+                            <label class="trplx-label form-row-text">
+                                Name
+                                <span class="form-required">*</span>
+                            </label>
+                            <div class="col-6">
+                                <fieldset class="form-group">
+                                    <input type="text" class="form-control" id="FirstName" pattern="^[a-zA-Z]+$"
+                                           required/>
+                                    <label class="trplx-label-sm" for="FirstName">
+                                        First Name
+                                    </label>
+                                </fieldset>
+                            </div>
+                            <div class="col-6">
+                                <fieldset class="form-group">
+                                    <input type="text" class="form-control" id="LastName" pattern="^[a-zA-Z]+$"
+                                           required/>
+                                    <label class="trplx-label-sm" for="LastName">
+                                        Last Name
+                                    </label>
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset class="form-group">
+                                    <label class="trplx-label" for="Notes">
+                                        Notes
+                                    </label>
+                                    <textarea name="Notes" class="form-control h-100" rows="5" id="Notes"></textarea>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row" th:object="${linerPatternImageWrapper}">
+                            <fieldset id="file-upload-before" class="file-upload">
+                                <label class="trplx-label">
+                                    Before Photo
+                                    <span class="form-required">*</span>
+                                </label>
+                                <div class="file-upload-container">
+                                    <div class="file-upload-zone">
+                                        <input type="file" name="beforeImage" id="beforeImage"
+                                               class="form-control file-upload-input"
+                                               th:field="*{beforeImage.imageFiles}" value="" multiple hidden required>
+                                        <div class="file-upload-browse">
+                                            <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+                                            <div class="file-upload-title">Browse Files</div>
+                                            <div class="file-upload-text">Click photos to remove them</div>
+                                        </div>
+                                        <div class="file-upload-gallery">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-sub-label-container">
+                                    <div class="form-sub-label">
+                                        Clear Photo of the Manhole and the Surrounding Area
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset id="file-upload-location" class="file-upload">
+                                <label class="trplx-label">
+                                    Location Photo
+                                    <span class="form-required">*</span>
+                                </label>
+                                <div class="file-upload-container">
+                                    <div class="file-upload-zone">
+                                        <input type="file" name="locationImage" id="locationImage"
+                                               th:field="*{locationImage.imageFiles}"
+                                               class="form-control file-upload-input" value="" multiple hidden required>
+                                        <div class="file-upload-browse">
+                                            <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+                                            <div class="file-upload-title">Browse Files</div>
+                                            <div class="file-upload-text">Click photos to remove them</div>
+                                        </div>
+                                        <div class="file-upload-gallery">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-sub-label-container">
+                                    <div class="form-sub-label">
+                                        Clear Photo of the Manhole and the Surrounding Area
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="navbar-container">
+        <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark trplx-nav">
+            <div class="container-xl">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button type="button" id="back-button" class="button-5 back-button"
+                                onclick="backPage();">
+                            Back
+                        </button>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <button type="submit" id="submit-button" class="button-5 submit-button"
+                                onclick="nextPage();">Next
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div id="error-navigation" class="navigation-container" style="display:none;" aria-hidden="false">
+        <div class="container">
+            <div class="row">
+                <span class="navigation-message">There are errors on this page. See required field's in red.</span>
+                <button class="navigation-button" type="button" onclick="goToFirstError();">See Errors
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script th:src="@{/js/pattern_form.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+</script>
+<script src="https://kit.fontawesome.com/5103ec7c43.js" crossorigin="anonymous"></script>
+<script th:src="@{/js/file_upload.js}"></script>
+<script>
+    let beforeFileUpload = new FileUpload(document.getElementById("file-upload-before"));
+    let locationFileUpload = new FileUpload(document.getElementById("file-upload-location"));
+</script>
+</html>

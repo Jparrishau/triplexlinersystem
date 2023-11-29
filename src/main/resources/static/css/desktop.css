@@ -1,0 +1,112 @@
+@media (min-width: 1400px) {
+  .desktop-view {
+    display: initial;
+  }
+  .mobile-view {
+    display: none;
+  }
+}
+
+html {
+   height: 100vh;
+}
+
+body {
+   height: 100vh;
+   background: linear-gradient(rgb(2, 53, 125), rgb(2, 53, 125));
+}
+
+.content-jumbotron {
+    position: relative;
+    transition: all 0.3s ease 0s;
+    background-color: rgb(229, 239, 255);
+    width: 100%;
+    border-radius: 8px;
+    margin: 0px;
+    padding: 25px 15px 9px;
+    text-align: center;
+}
+
+.jumbotron-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: -57px auto 0px;
+    transition: all 0.3s ease 0s;
+    z-index: 1;
+    max-width: 672px;
+    min-width: 672px;
+}
+
+.divider {
+    transition: box-shadow 0.15s ease 0s;
+    line-height: 1.3125em;
+    text-decoration: none;
+    color: rgb(2, 53, 125);
+    margin: 4px;
+    font-family: Roboto;
+    min-height: 15px;
+}
+
+.form-submit-button {
+    color: rgb(255, 255, 255);
+    border-radius: 100px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    background: rgb(2, 53, 125);
+    padding: 12.5px 16px;
+    font-size: 16px;
+    line-height: 20px;
+    word-break: break-word;
+    text-align: center;
+    font-weight: bold;
+    white-space: normal;
+    margin: 1%;
+    min-width: 100%;
+}
+
+.manhole-type-dropdown {
+    max-width: 40%;
+    min-height: 40px;
+}
+
+hr {
+    font-family: Roboto;
+    height: 1px;
+    width: 100%;
+    margin: 5% 0 5% 0;
+    border-top: 1px solid rgb(2, 53, 125);
+    border-top-color: rgb(2, 53, 125);
+    border-color: rgb(2, 53, 125);
+    opacity: 1;
+}
+
+.content-container {
+    -moz-box-pack: end;
+    justify-content: flex-end;
+    margin: 5px;
+    min-height: 76px;
+}
+
+.trplx-jumbotron {
+    max-width: 672px;
+    margin: 10% auto;
+}
+
+.title {
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 700;
+    color: rgb(2, 53, 125);
+}
+
+.description {
+    color: rgba(2, 53, 125, 0.7);
+    outline: none;
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    word-break: break-word;
+    min-width: 30px;
+}

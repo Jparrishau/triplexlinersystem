@@ -1,0 +1,87 @@
+#lid_diam_std_center {
+    position: absolute;
+    top: 4%;
+    left: 46%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#chimney_diam_std_center {
+    position: absolute;
+    top: 23%;
+    left: 46%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#chimney_depth_std_center {
+    position: absolute;
+    top: 16%;
+    left: 27.5%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#corbel_depth_std_center {
+    position: absolute;
+    top: 20.02%;
+    left: 69.5%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_e_std_center {
+    position: absolute;
+    top: 34.5%;
+    left: 46%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_f_std_center {
+    position: absolute;
+    top: 60%;
+    left: 46%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_g_std_center {
+    position: absolute;
+    top: 84%;
+    left: 46%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#bench_depth_std_center {
+    position: absolute;
+    top: 48%;
+    left: 18%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#invert_depth_std_center {
+    position: absolute;
+    top: 59%;
+    left: 10.2%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#invert_diam_std_center {
+    position: absolute;
+    top: 91.5%;
+    left: 59%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#canister_diam_std_center {
+    position: absolute;
+    top: 4%;
+    left: 46%;
+    width: 11%;
+    height: 4.5%;
+}

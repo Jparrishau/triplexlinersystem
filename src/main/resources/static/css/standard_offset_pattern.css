@@ -1,0 +1,95 @@
+#lid_diam_std_offset {
+    position: absolute;
+    top: 4%;
+    left: 37%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#chimney_diam_std_offset {
+    position: absolute;
+    top: 23%;
+    left: 37%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#chimney_depth_std_offset {
+    position: absolute;
+    top: 16%;
+    left: 55%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#corbel_depth_std_offset {
+    position: absolute;
+    top: 24.0%;
+    left: 71%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#corbel_slope_std_offset {
+    position: absolute;
+    top: 33.5%;
+    left: 57.3%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_1_std_offset {
+    position: absolute;
+    top: 43%;
+    left: 47%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_2_std_offset {
+    position: absolute;
+    top: 64%;
+    left: 47%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#body_diam_3_std_offset {
+    position: absolute;
+    top: 84%;
+    left: 47%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#bench_depth_std_offset {
+    position: absolute;
+    top: 48%;
+    left: 19.2%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#invert_depth_std_offset {
+    position: absolute;
+    top: 59%;
+    left: 11.6%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#invert_diam_std_offset {
+    position: absolute;
+    top: 92%;
+    left: 59%;
+    width: 11%;
+    height: 4.5%;
+}
+
+#canister_diam_std_offset {
+    position: absolute;
+    top: 4%;
+    left: 46%;
+    width: 11%;
+    height: 4.5%;
+}
